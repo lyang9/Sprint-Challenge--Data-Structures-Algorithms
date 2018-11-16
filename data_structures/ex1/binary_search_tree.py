@@ -9,12 +9,11 @@ class BinarySearchTree:
     while len(stack) > 0:
       visited = stack.pop()
       cb(visited.value)
-      if visited.left is not None:
-        stack.append(visited.left)
       if visited.right is not None:
         stack.append(visited.right)
+      if visited.left is not None:
+        stack.append(visited.left)
       
-
   def breadth_first_for_each(self, cb):       # level order
     queue = [self]
     while len(queue) > 0:
