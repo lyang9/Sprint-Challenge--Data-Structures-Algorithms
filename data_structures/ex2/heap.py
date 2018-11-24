@@ -8,6 +8,15 @@ def heapsort(arr):
   sorted_arr.reverse()
   return sorted_arr
 
+def heapsort(arr):                                    # Beej's solution
+  heap = Heap()                                       # O(1) not passing n here. happens order one time
+  sorted = [0] * len(arr)                             # O(n) initialize an array
+  for el in arr:                                      # O(n) loop through all the elements
+    heap.insert(el)                                   # O(log n) append the value and call bubble up. not O(n) because as we bubble up we dont have to visit every node. only visit the ones that are along the line that traversing from the bottom to the top.
+  for i in range(len(arr)):                           # O(n) another loop of order n
+    sorted[len(arr) - i - 1] = heap.delete()          # O(log n) appending to the end of the list. heap delete is log n process for the same reason as insert except instead of bubbling up at the bottom, we're sifting down from the top
+  return sorted
+
 class Heap:
   def __init__(self):
     self.storage = []
