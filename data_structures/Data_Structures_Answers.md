@@ -21,5 +21,5 @@ O(n) + O(n log n)               # O(n)--> grows linear.
 O(n log(n))                     # O(n log n)--> grows the fastest
 
 6. What is the space complexity of the `heapsort` function? Recall that your implementation should return a new array with the sorted data. What would be the space complexity if your function instead altered the input array?
-O(2n)
+O(2n)       # O(n) for sorted and O(n) for heap
 O(n)
