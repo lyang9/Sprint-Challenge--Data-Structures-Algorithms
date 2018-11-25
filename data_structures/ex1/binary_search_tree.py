@@ -4,7 +4,7 @@ class BinarySearchTree:
     self.left = None
     self.right = None
 
-  def depth_first_for_each(self, cb):         # pre-order
+  def depth_first_for_each(self, cb):         # pre-order. iterative implementation
     stack = [self]
     while len(stack) > 0:
       visited = stack.pop()
@@ -13,6 +13,13 @@ class BinarySearchTree:
         stack.append(visited.right)
       if visited.left is not None:
         stack.append(visited.left)
+
+  def depth_first_for_each(self, cb):         # recursive implementation
+    cb(self.value)
+    if self.left != None:
+      self.left.depth_first_for_each(cb)
+    if self.right != None:
+      self.right.depth_first_for_each(cb)
       
   def breadth_first_for_each(self, cb):       # level order
     queue = [self]
